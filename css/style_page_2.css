@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a2e; /* Dark background */
+    background-image: linear-gradient(270deg, #1a1a2e, #2e2e4a, #1a1a2e);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0; /* Light text color */
+}
+
+@keyframes gradientAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #e83e8c; /* A nice birthday-themed color */
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* Space between images */
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.image img {
+    width: 80%; /* Default to 80% width on small screens */
+    max-width: 100%; /* Allow full width */
+    height: auto; /* Auto height to maintain aspect ratio */
+    object-fit: contain; /* Shows entire image without cropping */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.image img:hover {
+    transform: scale(1.05);
+}
+
+.letter {
+    background: #2e2e4a; /* Slightly lighter dark background for the letter */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Adjusted shadow for dark theme */
+    text-align: left;
+    max-width: 600px;
+    width: 90%;
+    line-height: 1.6;
+    color: #e0e0e0; /* Light text color */
+    margin-bottom: 2rem;
+    white-space: pre-wrap; /* Respects line breaks in the JS string */
+    border-right: 3px solid #e83e8c; /* The blinking cursor */
+    animation: blink-cursor 0.75s step-end infinite;
+}
+
+@keyframes blink-cursor {
+    from, to { border-color: transparent }
+    50% { border-color: #e83e8c; }
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .image img {
+        width: calc(33% - 1rem); /* Three images per row on larger screens */
+    }
+}
